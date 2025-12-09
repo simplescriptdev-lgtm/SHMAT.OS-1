@@ -1,0 +1,53 @@
+/* Стилі модуля "Переміщення товарів" */
+
+.transfers-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 14px;
+}
+
+.transfers-tab {
+    position: relative;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.transfers-tab:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.transfers-tab--active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
+.transfers-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+}
+
+.transfers-block {
+    min-height: 72px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.15s ease, transform 0.05s ease;
+}
+
+.transfers-block:hover {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+
+

@@ -1,0 +1,112 @@
+/* Стилі модуля "Налаштування" */
+
+.settings-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 14px;
+}
+
+.settings-tab {
+    position: relative;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.settings-tab--active {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.settings-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+}
+
+.settings-block {
+    min-height: 72px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+}
+
+.settings-block-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 16px;
+    padding: 14px 16px;
+}
+
+.settings-logo-upload h4,
+.settings-logo-preview h4 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.settings-logo-upload p {
+    margin: 0 0 10px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.settings-file-input input[type="file"] {
+    font-size: 12px;
+}
+
+.settings-upload-btn {
+    margin-top: 8px;
+    border-radius: 999px;
+    border: none;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+}
+
+.settings-upload-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.settings-logo-preview-image img {
+    max-width: 240px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.settings-alert {
+    padding: 6px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.settings-alert--success {
+    background: #ecfdf3;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+}
+
+.settings-alert--error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+}
+
+@media (max-width: 920px) {
+    .settings-block-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+
+

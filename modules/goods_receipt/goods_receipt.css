@@ -1,0 +1,540 @@
+/* Стилі модуля "Прихід товару" */
+
+.goods-receipt-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 14px;
+}
+
+.goods-receipt-tab {
+    position: relative;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.goods-receipt-tab:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.goods-receipt-tab--active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
+.goods-receipt-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+}
+
+.goods-receipt-block {
+    min-height: 72px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.15s ease, transform 0.05s ease;
+}
+
+.goods-receipt-block:hover {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Кнопки */
+.goods-receipt-btn-primary {
+    border-radius: 999px;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.goods-receipt-btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4);
+}
+
+.goods-receipt-btn-secondary {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #f9fafb;
+    color: #111827;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-btn-secondary:hover {
+    background: #f3f4f6;
+}
+
+.goods-receipt-btn-edit {
+    border-radius: 8px;
+    border: 1px solid #3b82f6;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #eff6ff;
+    color: #1d4ed8;
+    margin-right: 6px;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-btn-edit:hover {
+    background: #dbeafe;
+}
+
+.goods-receipt-btn-delete {
+    border-radius: 8px;
+    border: 1px solid #ef4444;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fef2f2;
+    color: #dc2626;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-btn-delete:hover {
+    background: #fee2e2;
+}
+
+/* Модальні вікна */
+.goods-receipt-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.goods-receipt-modal-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.goods-receipt-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.goods-receipt-modal-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.goods-receipt-modal-close {
+    color: #6b7280;
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.goods-receipt-modal-close:hover {
+    color: #111827;
+}
+
+.goods-receipt-modal-body {
+    padding: 20px;
+}
+
+.goods-receipt-form-field {
+    margin-bottom: 16px;
+}
+
+.goods-receipt-form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.goods-receipt-form-field input[type="text"],
+.goods-receipt-form-field textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    color: #111827;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.goods-receipt-form-field textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.goods-receipt-form-field input[type="text"]:focus,
+.goods-receipt-form-field textarea:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+    background: #ffffff;
+}
+
+.goods-receipt-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Таблиця */
+.goods-receipt-table-container {
+    overflow-x: auto;
+}
+
+.goods-receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.goods-receipt-table thead {
+    background: #f9fafb;
+}
+
+.goods-receipt-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.goods-receipt-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111827;
+}
+
+.goods-receipt-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.goods-receipt-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.goods-receipt-btn-view {
+    border-radius: 8px;
+    border: 1px solid #10b981;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #ecfdf5;
+    color: #059669;
+    margin-right: 6px;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-btn-view:hover {
+    background: #d1fae5;
+}
+
+.goods-receipt-modal-content-large {
+    max-width: 900px;
+}
+
+.goods-receipt-modal-blocks {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.goods-receipt-modal-block {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f9fafb;
+    overflow: hidden;
+}
+
+.goods-receipt-modal-block-header {
+    padding: 12px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.goods-receipt-modal-block-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.goods-receipt-modal-block-content {
+    padding: 16px;
+}
+
+.goods-receipt-select {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #111827;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.goods-receipt-select:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+.goods-receipt-search-wrapper {
+    position: relative;
+}
+
+.goods-receipt-search-input {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #111827;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.goods-receipt-search-input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+.goods-receipt-search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    margin-top: 4px;
+    display: none;
+}
+
+.goods-receipt-search-result-item {
+    padding: 12px;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-search-result-item:last-child {
+    border-bottom: none;
+}
+
+.goods-receipt-search-result-item:hover {
+    background: #f9fafb;
+}
+
+.goods-receipt-search-result-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.goods-receipt-btn-add-to-receipt {
+    border-radius: 8px;
+    border: 1px solid #3b82f6;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #eff6ff;
+    color: #1d4ed8;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-btn-add-to-receipt:hover {
+    background: #dbeafe;
+}
+
+.goods-receipt-selected-product-item {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #ffffff;
+    margin-bottom: 12px;
+}
+
+.goods-receipt-selected-product-item:last-child {
+    margin-bottom: 0;
+}
+
+.goods-receipt-selected-product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.goods-receipt-btn-remove-product {
+    border-radius: 8px;
+    border: 1px solid #ef4444;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fef2f2;
+    color: #dc2626;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-btn-remove-product:hover {
+    background: #fee2e2;
+}
+
+.goods-receipt-selected-product-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.goods-receipt-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.goods-receipt-field-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.goods-receipt-field-group input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #111827;
+    font-size: 13px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.goods-receipt-field-group input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+.goods-receipt-all-products-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.goods-receipt-all-product-item {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+}
+
+.goods-receipt-all-product-item:last-child {
+    margin-bottom: 0;
+}
+
+.goods-receipt-all-product-item:hover {
+    background: #f9fafb;
+}
+
+@media (max-width: 920px) {
+    .goods-receipt-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .goods-receipt-tab {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .goods-receipt-modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .goods-receipt-modal-content-large {
+        max-width: 95%;
+    }
+
+    .goods-receipt-table {
+        font-size: 12px;
+    }
+
+    .goods-receipt-table th,
+    .goods-receipt-table td {
+        padding: 8px;
+    }
+
+    .goods-receipt-selected-product-fields {
+        grid-template-columns: 1fr;
+    }
+}
+

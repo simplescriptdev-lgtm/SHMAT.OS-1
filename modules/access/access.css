@@ -1,0 +1,287 @@
+/* Стилі модуля "Доступи" */
+
+.access-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 14px;
+}
+
+.access-tab {
+    position: relative;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.access-tab:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.access-tab--active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
+.access-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+}
+
+.access-block {
+    min-height: 72px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.15s ease, transform 0.05s ease;
+}
+
+.access-block:hover {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Кнопки */
+.access-btn-primary {
+    border-radius: 999px;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.access-btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4);
+}
+
+.access-btn-secondary {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #f9fafb;
+    color: #111827;
+    transition: background 0.15s ease;
+}
+
+.access-btn-secondary:hover {
+    background: #f3f4f6;
+}
+
+.access-btn-edit {
+    border-radius: 8px;
+    border: 1px solid #3b82f6;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #eff6ff;
+    color: #1d4ed8;
+    margin-right: 6px;
+    transition: background 0.15s ease;
+}
+
+.access-btn-edit:hover {
+    background: #dbeafe;
+}
+
+.access-btn-delete {
+    border-radius: 8px;
+    border: 1px solid #ef4444;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fef2f2;
+    color: #dc2626;
+    transition: background 0.15s ease;
+}
+
+.access-btn-delete:hover {
+    background: #fee2e2;
+}
+
+/* Модальні вікна */
+.access-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.access-modal-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+    width: 90%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.access-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.access-modal-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.access-modal-close {
+    color: #6b7280;
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.access-modal-close:hover {
+    color: #111827;
+}
+
+.access-modal-body {
+    padding: 20px;
+}
+
+.access-form-field {
+    margin-bottom: 16px;
+}
+
+.access-form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.access-form-field input[type="text"],
+.access-form-field input[type="password"],
+.access-form-field textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    color: #111827;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.access-form-field textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.access-form-field input[type="text"]:focus,
+.access-form-field input[type="password"]:focus,
+.access-form-field textarea:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+    background: #ffffff;
+}
+
+.access-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Таблиця */
+.access-table-container {
+    overflow-x: auto;
+}
+
+.access-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.access-table thead {
+    background: #f9fafb;
+}
+
+.access-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.access-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111827;
+}
+
+.access-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.access-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 920px) {
+    .access-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .access-tab {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .access-modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .access-table {
+        font-size: 12px;
+    }
+
+    .access-table th,
+    .access-table td {
+        padding: 8px;
+    }
+}
+

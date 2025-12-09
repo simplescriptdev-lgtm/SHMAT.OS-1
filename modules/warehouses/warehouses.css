@@ -1,0 +1,393 @@
+/* Стилі модуля "Управління складами" */
+
+.warehouses-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 14px;
+}
+
+.warehouses-tab {
+    position: relative;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.warehouses-tab:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.warehouses-tab--active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
+.warehouses-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+}
+
+.warehouses-block {
+    min-height: 72px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.15s ease, transform 0.05s ease;
+}
+
+.warehouses-block:hover {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Кнопки */
+.warehouses-btn-primary {
+    border-radius: 999px;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.warehouses-btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4);
+}
+
+.warehouses-btn-secondary {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #f9fafb;
+    color: #111827;
+    transition: background 0.15s ease;
+}
+
+.warehouses-btn-secondary:hover {
+    background: #f3f4f6;
+}
+
+.warehouses-btn-edit {
+    border-radius: 8px;
+    border: 1px solid #3b82f6;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #eff6ff;
+    color: #1d4ed8;
+    margin-right: 6px;
+    transition: background 0.15s ease;
+}
+
+.warehouses-btn-edit:hover {
+    background: #dbeafe;
+}
+
+.warehouses-btn-delete {
+    border-radius: 8px;
+    border: 1px solid #ef4444;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fef2f2;
+    color: #dc2626;
+    transition: background 0.15s ease;
+}
+
+.warehouses-btn-delete:hover {
+    background: #fee2e2;
+}
+
+.warehouses-btn-add-user {
+    border-radius: 8px;
+    border: 1px solid #3b82f6;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #eff6ff;
+    color: #1d4ed8;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+}
+
+.warehouses-btn-add-user:hover {
+    background: #dbeafe;
+}
+
+.warehouses-btn-remove-user {
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.warehouses-btn-remove-user:hover {
+    color: #991b1b;
+}
+
+/* Модальні вікна */
+.warehouses-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.warehouses-modal-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.warehouses-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.warehouses-modal-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.warehouses-modal-close {
+    color: #6b7280;
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.warehouses-modal-close:hover {
+    color: #111827;
+}
+
+.warehouses-modal-body {
+    padding: 20px;
+}
+
+.warehouses-form-field {
+    margin-bottom: 16px;
+}
+
+.warehouses-form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.warehouses-form-field input[type="text"],
+.warehouses-form-field input[type="password"],
+.warehouses-form-field textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    color: #111827;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.warehouses-form-field textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.warehouses-form-field input[type="text"]:focus,
+.warehouses-form-field input[type="password"]:focus,
+.warehouses-form-field textarea:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+    background: #ffffff;
+}
+
+.warehouses-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Випадаючий список користувачів */
+.warehouses-user-select-container {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.warehouses-user-select-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.warehouses-user-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    margin-top: 4px;
+}
+
+.warehouses-user-dropdown-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.warehouses-user-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.warehouses-user-dropdown-item:hover {
+    background: #f9fafb;
+}
+
+/* Вибрані користувачі */
+.warehouses-selected-users {
+    margin-top: 8px;
+}
+
+.warehouses-selected-users-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.warehouses-selected-user-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #1d4ed8;
+}
+
+/* Таблиця */
+.warehouses-table-container {
+    overflow-x: auto;
+}
+
+.warehouses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.warehouses-table thead {
+    background: #f9fafb;
+}
+
+.warehouses-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.warehouses-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111827;
+}
+
+.warehouses-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.warehouses-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 920px) {
+    .warehouses-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .warehouses-tab {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .warehouses-modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .warehouses-table {
+        font-size: 12px;
+    }
+
+    .warehouses-table th,
+    .warehouses-table td {
+        padding: 8px;
+    }
+}
+
