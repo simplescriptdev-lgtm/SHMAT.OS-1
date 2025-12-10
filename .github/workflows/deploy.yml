@@ -6,28 +6,33 @@ on:
       - main
 
 jobs:
-  ftp-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    name: FTP Deploy
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Deploy to Hostinger FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      - name: Upload project to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
+          port: ${{ secrets.FTP_PORT }}   # або 21, якщо хочеш без секрету
           protocol: ftp
-          local-dir: "./"
-          server-dir: "/public_html/"
+
+          # Папка на сервері (твій домен) — у Hostinger це public_html
+          server-dir: /public_html/
+
+          # Що заливати з репо — весь проєкт з кореня
+          local-dir: ./
+
+          # Щоб видалити default.php і зайве, та залити тільки те, що в репо
           dangerous-clean-slate: true
+
+          # Не заливати службові файли GitHub
           exclude: |
             **/.git*
-            **/.github*
-            **/node_modules*
-            **/.env
+            **/.github/**
             **/.DS_Store
