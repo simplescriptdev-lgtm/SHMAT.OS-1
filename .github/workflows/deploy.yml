@@ -13,26 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Upload project to Hostinger via FTP
+      - name: Upload project to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}   # або 21, якщо хочеш без секрету
+          port: ${{ secrets.FTP_PORT }}
           protocol: ftp
-
-          # Папка на сервері (твій домен) — у Hostinger це public_html
+          passive: true
           server-dir: /public_html/
-
-          # Що заливати з репо — весь проєкт з кореня
-          local-dir: ./
-
-          # Щоб видалити default.php і зайве, та залити тільки те, що в репо
+          local-dir: ./public/
           dangerous-clean-slate: true
-
-          # Не заливати службові файли GitHub
-          exclude: |
-            **/.git*
-            **/.github/**
-            **/.DS_Store
