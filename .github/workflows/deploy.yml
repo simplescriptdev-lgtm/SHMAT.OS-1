@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Upload project to Hostinger
+      - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -22,6 +22,7 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp
           passive: true
-          server-dir: /public_html/
-          local-dir: ./public/
+          server-dir: ./
+          local-dir: ./            # заливаємо весь репозиторій
+          log-level: verbose       # детальні логи, щоб бачити, що відбувається
           dangerous-clean-slate: true
